@@ -1,5 +1,5 @@
 def get_shortest_unique_substring(arr, str):
-    headIndex = 0
+    left = 0
     result = ""
     uniqueCounter = 0
     countMap = {}
@@ -8,8 +8,8 @@ def get_shortest_unique_substring(arr, str):
         countMap[arr[i]] = 0
 
     # scan str
-    for tailIndex in range(len(str)):
-        tailChar = str[tailIndex]
+    for right in range(len(str)):
+        tailChar = str[right]
         if not tailChar in countMap:
             continue
         tailCount = countMap[tailChar]
@@ -19,18 +19,18 @@ def get_shortest_unique_substring(arr, str):
         # push head forward
 
         while uniqueCounter == len(arr):
-            tempLength = tailIndex - headIndex + 1
+            tempLength = right - left + 1
             if tempLength == len(arr):
-                return str[headIndex:tailIndex+1]
+                return str[left:right+1]
             if result == "" or tempLength < len(result):
-                result = str[headIndex:tailIndex+1]
-            headChar = str[headIndex]
+                result = str[left:right+1]
+            headChar = str[left]
             if headChar in countMap:
                 headCount = countMap[headChar] - 1
             if headCount == 0:
                 uniqueCounter = uniqueCounter - 1
             countMap[headChar] = headCount
-            headIndex = headIndex + 1
+            left = left + 1
     return result
 
 

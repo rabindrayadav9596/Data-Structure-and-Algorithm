@@ -1,7 +1,7 @@
 '''case I
 
 if the node has a right subtree,
-then find the lease value node from
+then find the least value node from
 that right subtree
 
 if(p.right != None):
