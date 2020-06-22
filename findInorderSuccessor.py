@@ -31,7 +31,7 @@ class BinarySearchTree:
 
     def find_in_order_successor(self, inputNode):
        # your code goes here
-
+        # if right subtree exist
         if inputNode.right:
             temp = inputNode.right
             while(temp.left):

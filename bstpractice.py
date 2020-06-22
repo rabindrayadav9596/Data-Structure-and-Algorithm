@@ -40,7 +40,6 @@ class BST:
             is_found = self._find(data, self.root)
             if is_found:
                 return True
-
         else:
             return None
 
